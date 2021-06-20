@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-show-emp',
@@ -7,9 +8,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowEmpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SharedService) { }
+
+  EmployeeList:any=[];
+
+  ModalTitle:string;
+  ActivateAddEditEmpComp:boolean = false;
+  emp:any;
 
   ngOnInit(): void {
+    this.refreshEmpList();
+  }
+
+  addClick() {
+    this.emp={
+      EmployeeId:0,
+      EmployeeName:"",
+      Department:"",
+      DateOfJoining:"",
+      PhotoFileName:"anonymous.jpg"
+    }
+    this.ModalTitle="Add employee";
+    this.ActivateAddEditEmpComp=true;
+  }
+
+  editClick(item) {
+    this.emp=item;
+    this.ModalTitle="Edit employee";
+    this.ActivateAddEditEmpComp=true;
+  }
+
+  deleteClick(item) {
+    if(confirm('Are you sure?')) {
+      this.service.deleteEmployee(item.EmployeeId).subscribe(data=>{
+        alert(data.toString());
+        this.refreshEmpList();
+      })
+    }
+  }
+
+  closeClick() {
+    this.ActivateAddEditEmpComp=false;
+    this.refreshEmpList();
+  }
+
+  refreshEmpList() {
+    this.service.getEmpList().subscribe(data=>{
+      this.EmployeeList = data;
+    })
   }
 
 }
