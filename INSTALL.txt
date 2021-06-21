@@ -1,0 +1,56 @@
+Video instructions at Learn Angular 10, Python Django & SQLite by creating a full stack app from scratch
+
+Project in GitHub https://github.com/jukkamic/DjangoAngularTutorial
+
+# Starting from scratch
+
+## Installations
+
+Visual Studio Code
+Postman
+
+Node JS
+Used to create and run the Angular project
+Default settings
+npm -v from Node.js Command Prompt
+
+Angular CLI
+Install globally
+Open node.js command prompt
+(node.js) npm install -g @angular/cli
+(node.js) ng --version
+
+Python
+Run installer as admin. 
+Add to PATH (checkbox)
+(cmd) python
+print(‘hello world’)
+
+Virtual Environments
+Create and enter folder DjangoAngularTutorial
+(cmd) python -m venv myenv
+(cmd) myenv\Scripts\activate
+
+Django and Django REST framework
+(myenv) pip install django
+(myenv) pip install djangorestframework
+
+Create Django project
+(myenv) django-admin startproject DjangoAPI
+cd DjangoAPI
+code . (code space dot)
+python manage.py runserver
+
+Adding project to GitHub
+Adding an existing project to GitHub using the command line
+
+Django CORS
+(myenv) pip install django-cors-headers
+
+Angular UI (Tutorial UI or Tutui)
+In folder DjangoAngularTutorial create folder ui
+Under ui…
+ng new tutui
+NOTE instruction video at about 42 minutes. Don’t simply go with the default settings.
+ng serve --open
+ng generate component department (etc)
