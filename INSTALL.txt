@@ -1,0 +1,51 @@
+=== AWS Ubuntu 20.4 Server ===
+
+sudo apt update
+sudo apt install nodejs
+sudo apt install npm
+
+chmod 600 ~/.ssh/id_rsa
+git clone git@github.com:jukkamic/DjangoAngularTutorial.git
+
+sudo apt update
+npm cache clean -f
+sudo npm install -g @angular/cli
+(warnings of compatibility issues between versions of node and angular)
+sudo apt update
+npm cache clean -f
+
+sudo npm install -g n
+sudo n stable
+
+(reboot instance)
+
+=== Django Tutorial API ===
+
+cd DjangoAngularTutorial/
+source myenv/Scripts/activate
+sudo apt install python3-pip
+pip install django
+
+pip install djangorestframework
+pip install django-cors-headers
+
+cd DjangoAPI/
+python3 manage.py migrate
+python3 manage.py runserver 0.0.0.0:8000 > /dev/null 2>&1 &
+
+=== Tutorial UI ===
+
+sudo apt-get install apache2
+sudo apt-get install apache2-dev
+
+cd DjangoAngularTutorial/ui/tutui/
+npm install
+ng build --prod
+
+Browser: http://host/tutui
+
+=== MISSING FROM INSTALL GUIDE ===
+
+- link dist to apache www folder
+- edit host URL in shared.service.ts
+- open gateway to port 8000 (and 80) in AWS
