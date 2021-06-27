@@ -7,3 +7,8 @@ The YouTube presentation https://www.youtube.com/watch?v=1Hc7KlLiU9w
 Original sources https://github.com/ArtOfEngineer/PythonDjangoAngular10
 
 Support Vinay https://www.paypal.com/paypalme/vinay6666
+
+# Install
+
+See INSTALL.txt for instructions.
+
