@@ -1,4 +1,11 @@
-=== AWS Ubuntu 20.4 Server ===
+=== AWS Ubuntu 20.04 Server ===
+
+lsb_release -a
+	No LSB modules are available.
+	Distributor ID: Ubuntu
+	Description:    Ubuntu 20.04.2 LTS
+	Release:        20.04
+	Codename:       focal
 
 sudo apt update
 sudo apt install nodejs
@@ -40,12 +47,19 @@ sudo apt-get install apache2-dev
 
 cd DjangoAngularTutorial/ui/tutui/
 npm install
+
+
+edit host URL in src/environments
+
+= Build distributable client = 
+
 ng build --prod
+copy (or link) folder tutui/dist/tutui into Apache web directory.
+
+= Run client locally with remote API = 
+
+ng serve --configuration=production
+
+= Testing =
 
 Browser: http://host/tutui
-
-=== MISSING FROM INSTALL GUIDE ===
-
-- link dist to apache www folder
-- edit host URL in shared.service.ts
-- open gateway to port 8000 (and 80) in AWS
