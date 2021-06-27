@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-  readonly APIUrl = "http://127.0.0.1:8000";
-  readonly PhotoUrl = "http://127.0.0.1:8000/media/";
+  readonly APIUrl = environment.api_url;
+  readonly PhotoUrl = environment.photo_url;
 
   constructor(private http:HttpClient) { }
 
